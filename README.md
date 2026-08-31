@@ -2,7 +2,7 @@
 
 A modern, practical markdown **Software Requirements Specification (SRS)** template aligned with **IEEE 830** and **ISO/IEC/IEEE 29148:2011/2017**. It emphasizes verifiable requirements, traceability, quality attributes, and clear separation of “what” (requirements) from “how” (design)—leaving that to complementary artifacts such as [Markdown Software Design Description (MSDD)](https://github.com/jam01/SDD-Template).
 
-This SRS template **builds on formal standards**, with the non-functional requirement organization and language based on van Lamsweerde’s Requirements Engineering taxonomy of non-functional requirements, and **incorporates modern software component requirements**—continuous delivery, observability, and AI/ML.
+This SRS template **builds on formal standards**, with the non-functional requirement organization and language based on van Lamsweerde’s Requirements Engineering taxonomy of non-functional requirements, and **incorporates modern software component requirements**—observability, data management, and AI/ML guardrails.
 
 Designed to be:
 - Readable, developer‑friendly, and AI‑interpretable
@@ -12,7 +12,7 @@ Designed to be:
 
 - **Standards-aligned:** IEEE 830, ISO/IEC/IEEE 29148
 - **Comprehensive structure** with clear, testable requirement patterns
-- Dedicated sections for Quality of Service, Compliance, and AI/ML
+- Dedicated Quality of Service section covering performance, security, reliability, availability, observability, portability, data management, and AI/ML guardrails
 - **Built-in guidance, tips, and checklists** for each section
 - **Traceability-ready** requirement ID schema and verification matrix
 - Suitable for regulated and enterprise contexts
@@ -22,7 +22,7 @@ Designed to be:
 - **Product managers and business analysts** defining scope and outcomes
 - **Architects and engineers** designing solutions from stable requirements
 - **QA and SRE teams** planning verification and SLAs/SLOs
-- **Security, compliance, and data governance teams**
+- **Security and data governance teams**
 
 ## Quick Start
 
@@ -37,14 +37,10 @@ Designed to be:
 ## Template Structure (Overview)
 
 1. Introduction: Purpose, scope, glossary, references, and document conventions
-2. Product Overview: Context, functions, constraints, users, assumptions, allocation
+2. Product Overview: Case study and comparison, context, functions, constraints, users, assumptions, allocation
 3. Requirements:
     - External Interfaces (UI, hardware, software)
-    - Functional Requirements (externally observable behaviors)
-    - Quality of Service (performance, security, reliability, availability, observability)
-    - Compliance (regulatory/contractual obligations)
-    - Design & Implementation constraints (installation, build/delivery, distribution, maintainability, reusability, portability, cost, deadlines, POCs, change management)
-    - AI/ML (model specs, data management, guardrails, ethics, human-in-the-loop, lifecycle)
+    - Quality of Service (performance, security, reliability, availability, observability, portability and risks, data management, guardrails)
 4. Verification: Methods, environments, artifacts, and traceability
 5. Appendixes: Supporting, non-normative materials
 
