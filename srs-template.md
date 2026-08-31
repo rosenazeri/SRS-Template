@@ -224,7 +224,7 @@ Requirement ID schema and traceability:
 - When a quality applies only to a subset of functions, reference the related requirement IDs.
 - Provide rationale when targets cut across functions to aid trade-off decisions.
 
-#### 3.3.1 Performance
+#### 3.2.1 Performance
 💬 _Response time, throughput, and resource usage expectations._
 
 ➥ Specify timing relationships, peak/steady-state loads, and performance targets under expected conditions. Include measurement methods, environments, and acceptance thresholds. Note any real-time constraints.
@@ -233,7 +233,7 @@ Requirement ID schema and traceability:
 - Include scalability targets and capacity planning assumptions.
 - Consider organizing into subcategories for clarity: Time (latency, throughput, etc.) and Space (memory, storage, bandwidth, etc.).
 
-#### 3.3.2 Security
+#### 3.2.2 Security
 💬 _Defines the protection of data, identities, and operations._
 
 ➥ Define authentication, authorization, data protection (in transit/at rest), auditing, and privacy requirements. Address abuse/misuse and external attacks (e.g., injection, data exfiltration, or service compromise), and include secure defaults and incident response requirements.
@@ -248,12 +248,12 @@ Place generic security controls here (3.3.2), and cross-reference from supported
 - Use 3.4 Compliance for regulatory/contractual obligations and audit evidence.
 - Use 3.6 AI/ML for model-specific runtime protections and data governance.
 
-#### 3.3.3 Reliability
+#### 3.2.3 Reliability
 💬 _Ability to consistently perform as specified._
 
 ➥ Specify reliability metrics and techniques (e.g., MTBF, error budgets, retry/backoff, idempotency, redundancy). Define conditions under which reliability is assessed and any failover behaviors. Define graceful degradation (e.g., fallback components, cached results, AI/ML deterministic heuristics), timeout/abstain policies, and rollback to previous versions.
 
-#### 3.3.4 Availability
+#### 3.2.4 Availability
 💬 _System uptime and readiness to deliver service._
 
 ➥ Define availability targets, maintenance windows, and mechanisms like checkpointing, recovery, and restart. Include geographical/zone redundancy if applicable.
@@ -262,7 +262,7 @@ Place generic security controls here (3.3.2), and cross-reference from supported
 - Express availability in terms meaningful to users (e.g., downtime per month) and tie to SLAs/SLOs.
 - Capture scale-out/in behavior affecting availability (e.g., max failover time, quorum constraints).
 
-#### 3.3.5 Observability
+#### 3.2.5 Observability
 💬 _Ability to understand system state and behavior in production through telemetry._
 
 ➥ Define requirements for logs, metrics, traces, and profiling: events/fields, cardinality limits, sampling, retention, and privacy/PII handling in telemetry. Specify standard labels (e.g., service, version, tenant), correlation/trace IDs propagation, and redaction policies. State SLO-aligned alert rules, dashboards, and ownership.
@@ -270,100 +270,17 @@ Place generic security controls here (3.3.2), and cross-reference from supported
 💡 Tips:
 - Avoid maintenance-process details (keep runbooks and on-call policies in 3.5.4 Maintainability).
 
-### 3.4 Compliance
-💬 _Requirements derived to satisfy external standards, regulations, or contracts._
+#### 3.2.6 Portability and Risks
+💬 _Ability to run across heterogeneous environments with minimal adaptation, along with associated migration risks._
 
-➥ Specify mandated formats, naming conventions, accounting procedures, provider/user rights and agreements, licensing agreements, audit tracing, records retention, and reporting. For each compliance item, reference 2.3 Product Constraints if applicable, or cite the authoritative source directly.
+➥ Specify target operating systems, architectures (e.g., x86_64, ARM64), container runtimes, and cloud-agnostic abstractions. Detail environment variable externalization and identify potential platform-lock-in or compatibility risks.
 
-### 3.5 Design and Implementation
-💬 _Constraints or mandates affecting how the solution is designed, deployed, and maintained._
-
-#### 3.5.1 Installation
-💬 _Ensures the software runs smoothly in its target environments._
-
-➥ Define (un)supported platforms/environments, prerequisites, installation methods, environment configuration (e.g., env vars, secrets), and rollback/uninstall procedures.
-
-💡 Tips:
-- Detail automation expectations (e.g., IaC, installer scripts, container images).
-- Keep scaling mechanics (topology, multi-region) in 3.5.3 Distribution; keep scaling targets in 3.3 QoS.
-
-#### 3.5.2 Build and Delivery
-💬 _Defines the controls for building, packaging, and delivering software artifacts to ensure integrity, traceability, and reproducibility._
-
-➥ Define how source code is transformed into deployable artifacts and moved through environments. Describe expectations for build reproducibility, dependency management, licensing, configuration management, artifact verification, and release promotion.
-
-💡 Tips:
-- Cross-reference 3.5.1 Installation and 3.5.10 Change Management for environment setup, versioning, and release traceability.
-- Avoid operational topology details (those belong in 3.5.3 Distribution).
-
-#### 3.5.3 Distribution
-💬 _Addresses geographically or organizationally distributed deployments, data, and devices._
-
-➥ Specify deployment topologies, component and data distribution/replication approaches and scale-out runbooks, and constraints imposed by organizational or network structure.
-
-#### 3.5.4 Maintainability
-💬 _Attributes that make the software easier to modify, fix, and evolve._
-
-➥ Define expectations for modularity, code complexity, interfaces, coding standards, developer oriented observability, documentation, software delivery performance, and technical debt management.
-
-#### 3.5.5 Reusability
-💬 _Encourages leveraging components across products or contexts when appropriate._
-
-➥ Identify components intended for reuse and any constraints on their dependencies or technology choices. Specify modularization, API stability, packaging, and documentation to enable reuse.
-
-#### 3.5.6 Portability
-💬 _Ability to run on multiple platforms or environments with minimal changes._
-
-➥ Specify (un)supported operating systems, hardware architectures, cloud providers, or container runtimes. Define abstraction layers, configuration policies, and externalization of environment-specific settings.
-
-#### 3.5.7 Cost
-💬 _Financial considerations or cost targets._
-
-➥ State budgetary limits, cost-per-transaction targets, licensing constraints, or cloud spend envelopes that influence design decisions.
-
-💡 Tips:
-- Keep costs high-level unless contractually defined.
-- Link to a cost model or TCO assumptions where available.
-- Note variable vs. fixed cost expectations impacting scaling strategies.
-
-#### 3.5.8 Deadline
-💬 _Schedule expectations that affect scope and prioritization._
-
-➥ Specify key milestones, delivery dates, or phases/increments. Indicate dependencies between milestones and required readiness criteria.
-
-💡 Tips:
-- Use deadlines to guide apportioning of requirements (Section 2.6).
-
-#### 3.5.9 Proof of Concept
-💬 _Validates feasibility and de-risks critical assumptions before full-scale delivery._
-
-➥ Define the objectives, scope, success criteria, and timebox for any POCs. Describe what will be validated (technical, usability, performance) and how results will influence requirements or design.
-
-💡 Tips:
-- Keep POCs narrowly focused and measurable. Focus on validation goals, not implementation details.
-
-#### 3.5.10 Change Management
-💬 _Controls how changes are introduced and communicated._
-
-➥ Define change categories (breaking, additive, bugfix), approval workflow, and required artifacts (changelogs, evaluation summaries, migration guides, release notes). Specify backward/forward compatibility guarantees, client communication plans, deprecation timelines, and rollout/rollback procedures.
-
-### 3.6 AI/ML
-💬 _This section defines requirements unique to systems incorporating machine learning or data-driven components at their core. These requirements complement functional, quality, and design aspects in preceding sections but address ML-specific lifecycle, data, and ethical considerations._
-
-#### 3.6.1 Model Specification
-💬 _Defines what each model is intended to do and the measurable criteria for acceptable performance._
-
-➥ Describe model(s) purpose, scope, expected behavior, key inputs and outputs, and measurable performance objectives. Note any validation datasets, benchmarks, or versioning practices used to ensure reproducibility.
-
-💡 Tips:
-- Distinguish baseline targets from aspirational improvements and define acceptable tolerance for drift.
-
-#### 3.6.2 Data Management
+#### 3.2.7 Data Management
 💬 _Ensures integrity, traceability, and ethical lifecycle of data used in model training, validation, and operation._
 
 ➥ Specify dataset origin, ownership, consent conditions; labeling processes and quality controls; data lineage, versioning, and reproducibility (training → validation → inference); storage, access controls, and anonymization/pseudonymization standards; handling of missing, synthetic, or augmented data.
 
-#### 3.6.3 Guardrails
+#### 3.2.8 Guardrails
 💬 _Ensure that the AI system operates safely, predictably, and within approved boundaries._
 
 ➥ Specify how the system validates inputs, filters or constrains outputs, and limits available actions to prevent harm, misuse, or unintended consequences. Include mechanisms to detect and respond to malicious inputs or unsafe operational conditions.
@@ -372,29 +289,6 @@ Place generic security controls here (3.3.2), and cross-reference from supported
 - Treat “guardrails” across input, output, and action layers.
 - Define escalation, logging, and rollback procedures when safety constraints are triggered.
 - Cross-reference 3.3.2 Security for system-level protections and 3.6.4 Ethics for normative expectations.
-
-#### 3.6.4 Ethics
-💬 _Addresses fairness, transparency, and accountability in model behavior and outcomes._
-
-➥ Define how ethical considerations will be identified, measured, and managed throughout development and operation. Include fairness objectives, explainability expectations, and documentation or review requirements.
-
-💡 Tips:
-- Use fairness metrics appropriate to context (e.g., demographic parity, equal opportunity).
-- Consider organizing into subcategories for clarity: Fairness (societal bias in outcomes), Interpretability (can inspect the model and understand outputs), and Explainability (can explain an output for a given input).
-- Coordinate with 3.6.3 Guardrails for enforcement mechanisms and 3.6.5 Human-in-the-Loop for human oversight.
-
-#### 3.6.5 Human-in-the-Loop
-💬 _Specifies the role of human oversight in decisions influenced or made by machine learning models._
-
-➥ Describe where and how human review, approval, or intervention is required. Clarify review latency or throughput expectations, escalation paths, feedback mechanisms, traceability, and auditability of human actions.
-
-💡 Tips:
-- Link to applicable roles defined in 2.4 User Characteristics.
-
-#### 3.6.6 Model Lifecycle and Operations
-💬 _Defines requirements for deploying, monitoring, retraining, and retiring models in production._
-
-➥ Outline how models transition from development to production, how their performance and data quality are monitored, and how retraining or rollback is triggered and managed. Include expectations for versioning and archival.
 
 ## 4. Verification
 💬 _Describes how each requirement will be verified to provide objective evidence of compliance._
