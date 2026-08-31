@@ -174,7 +174,7 @@ Requirements (Section 3) defines verifiable system obligations—specific behavi
 ```
 
 Requirement ID schema and traceability:
-- ID format: REQ-[AREA]-[NNN]-[VER] (optional -[VER] if versioned), where AREA ∈ {FUNC, INT, PERF, SEC, REL, AVAIL, OBS, COMP, INST, BUILD, DIST, MAINT, REUSE, PORT, COST, DEAD, POC, CM, ML}.
+- ID format: REQ-[AREA]-[NNN]-[VER] (optional -[VER] if versioned), where AREA ∈ {FUNC, INT, PERF, SEC, REL, AVAIL, OBS, PORT, DATA, GUARD} — corresponding to 2.3 Product Functions, 3.1 External Interfaces, 3.2.1 Performance, 3.2.2 Security, 3.2.3 Reliability, 3.2.4 Availability, 3.2.5 Observability, 3.2.6 Portability and Risks, 3.2.7 Data Management, and 3.2.8 Guardrails respectively. (Removed: COMP, INST, BUILD, DIST, MAINT, REUSE, COST, DEAD, POC, CM, ML — these referenced sections that don't exist anywhere in this template.)
 - Uniqueness: IDs must be unique and immutable; changes increment -[VER] and are recorded in Revision History.
 - Traceability: Each test artifact may reference the requirement ID.
 
@@ -243,10 +243,12 @@ Requirement ID schema and traceability:
 - Consider organizing into subcategories for clarity: Safety (harmful external outcomes), Confidentiality (disclose data to unauthorized parties), Privacy (private data disclosed without consent), Integrity (data modified without authorization), and Availability (authorized data or resources made available when requested).
 
 📝 Note:
-Place generic security controls here (3.3.2), and cross-reference from supported controls as necessary:
+Place generic security controls here (3.2.2), and cross-reference from supported controls as necessary:
 - Use 3.1 External Interfaces for interface-level validation and secure protocols.
-- Use 3.4 Compliance for regulatory/contractual obligations and audit evidence.
-- Use 3.6 AI/ML for model-specific runtime protections and data governance.
+- Use 3.2.7 Data Management for data governance and lifecycle controls.
+- Use 3.2.8 Guardrails for model-specific runtime protections.
+
+(Removed references to a "3.4 Compliance" and a "3.6 AI/ML" section — no such sections exist in this template.)
 
 #### 3.2.3 Reliability
 💬 _Ability to consistently perform as specified._
@@ -268,7 +270,7 @@ Place generic security controls here (3.3.2), and cross-reference from supported
 ➥ Define requirements for logs, metrics, traces, and profiling: events/fields, cardinality limits, sampling, retention, and privacy/PII handling in telemetry. Specify standard labels (e.g., service, version, tenant), correlation/trace IDs propagation, and redaction policies. State SLO-aligned alert rules, dashboards, and ownership.
 
 💡 Tips:
-- Avoid maintenance-process details (keep runbooks and on-call policies in 3.5.4 Maintainability).
+- Avoid maintenance-process details such as runbooks and on-call policies — no dedicated Maintainability section exists in this template, so keep such content out of scope or add a section for it if needed.
 
 #### 3.2.6 Portability and Risks
 💬 _Ability to run across heterogeneous environments with minimal adaptation, along with associated migration risks._
@@ -288,7 +290,9 @@ Place generic security controls here (3.3.2), and cross-reference from supported
 💡 Tips:
 - Treat “guardrails” across input, output, and action layers.
 - Define escalation, logging, and rollback procedures when safety constraints are triggered.
-- Cross-reference 3.3.2 Security for system-level protections and 3.6.4 Ethics for normative expectations.
+- Cross-reference 3.2.2 Security for system-level protections.
+
+(Removed a reference to a "3.6.4 Ethics" section — no such section exists in this template.)
 
 ## 4. Verification
 💬 _Describes how each requirement will be verified to provide objective evidence of compliance._
