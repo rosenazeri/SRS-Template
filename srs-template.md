@@ -1,5 +1,5 @@
 # Software Requirements Specification
-## For {{project name}}
+## For {{Software Engineering Course Project — Fall 2026}}
 
 Version 0.1  
 Prepared by {{author}}  
@@ -91,7 +91,17 @@ Prepared by {{author}}
 ## 2. Product Overview
 💬 _Provides background and context influencing the product’s requirements._
 
-### 2.1 Product Perspective
+### 2.1 Case study and Comparison
+💬 Analyzes relevant industry case studies, benchmarks, or competing solutions to justify architectural and functional choices.
+
+➥ Review similar existing systems, industry case studies, or competitive benchmarks. Highlight their strengths, architectural approaches, and pitfalls, then compare them against the proposed product to justify design trade-offs, identify gaps, and validate technical feasibility.
+
+💡 Tips:
+
+    Use a comparison matrix (e.g., Feature/Architecture vs. Solutions) for quick reference.
+    Focus on lessons learned from existing solutions and why current alternatives fail to address the core problem.
+
+### 2.2 Product Perspective
 💬 _Places the product within a larger ecosystem or lineage._
 
 ➥ Describe context and origin of the product, whether this is a new product, replacement, or member of a family. If part of a larger system, briefly explain relationships, external interfaces, and key dependencies. Include details on ownership, service level agreements (SLAs), and support models.
@@ -100,7 +110,7 @@ Prepared by {{author}}
 - Highlight upstream/downstream systems and ownership boundaries.
 - A high-level context diagram may help to orient the reader.
 
-### 2.2 Product Functions
+### 2.3 Product Functions
 💬 _High-level summary of what the product enables users or systems to do._
 
 ➥ Provide a concise overview of the major functional areas/features. Defer detailed behaviors, data, and edge cases to Section 3.
@@ -109,7 +119,7 @@ Prepared by {{author}}
 - 5–10 bullets are often sufficient at this level, grouping related functions logically.
 - Include a top-level data flow or use case diagram if helpful.
 
-### 2.3 Product Constraints
+### 2.4 Product Constraints
 💬 _Defines contextual limitations or conditions shaping design and implementation._
 
 ➥ Describe constraints such as mandated interfaces, technology stacks, regulatory obligations, QoS baselines, hardware limitations, AI/ML model families, and organizational policies.
@@ -122,7 +132,7 @@ Prepared by {{author}}
 📝 Note:
 Requirements (Section 3) defines verifiable system obligations—specific behaviors or qualities the system shall exhibit in order to satisfy limits described in this section.
 
-### 2.4 User Characteristics
+### 2.5 User Characteristics
 💬 _Defines the user groups and the attributes that affect requirements._
 
 ➥ Identify user classes, roles, and personas, noting expertise, access levels, frequency of use, accessibility needs, and goals.
@@ -131,7 +141,7 @@ Requirements (Section 3) defines verifiable system obligations—specific behavi
 - Define user classes by behavior, not just titles.
 - Note localization and accessibility considerations that affect UI/UX requirements.
 
-### 2.5 Assumptions and Dependencies
+### 2.6 Assumptions and Dependencies
 💬 _External assumed factors or conditions, as opposed to known facts, that the project relies on._
 
 ➥ List assumptions about environment, hardware, usage patterns, third-party components/services, and organizational support. List dependencies on external systems, libraries, or teams. For each, indicate potential impact if proven false.
@@ -139,7 +149,7 @@ Requirements (Section 3) defines verifiable system obligations—specific behavi
 💡 Tips:
 - Link assumptions to risk register with owner and mitigation when available.
 
-### 2.6 Apportioning of Requirements
+### 2.7 Apportioning of Requirements
 💬 _Allocation of requirements across components or increments._
 
 ➥ Map major requirements to subsystems, services, or releases/iterations. Use a cross-reference table to show allocation and to clearly identify deferred requirements.
@@ -205,16 +215,7 @@ Requirement ID schema and traceability:
 - Capture versioning and backward compatibility policies.
 - Define authentication/authorization expectations for each integration.
 
-### 3.2 Functional
-💬 _Specifies the externally observable behaviors and functions the software shall provide._
-
-➥ Organize functional requirements by feature, use case, or service. For each, describe triggers/inputs, processing/logic (at a black-box level), outputs, and error conditions. For AI behaviors, define determinism bounds (e.g., temperature), refusal criteria, safety rules, and human review points.
-
-💡 Tips:
-- Include edge cases and negative scenarios for completeness.
-- For AI features, include fallback behaviors and thresholds for abstention.
-
-### 3.3 Quality of Service
+### 3.2 Quality of Service
 💬 _Quality attributes that constrain or qualify functional behavior._
 
 ➥ Use specific metrics, ranges, and conditions.
@@ -400,15 +401,17 @@ Place generic security controls here (3.3.2), and cross-reference from supported
 
 ➥ Outline verification methods (test, canary metrics, analysis, inspection, demonstration) and test evidence preferably in a matrix paralleling Section 3. Consider adding environment details, tools, and test data requirements.
 
-| Requirement ID | Verification Method | Test/Artifact Link | Status | Evidence           |
-|----------------|---------------------|--------------------|--------|--------------------|
-| REQ-FUNC-001   | test                | tests/UC01.md      | Passed | reports/tuc01.html |
-| REQ-SEC-003    | analysis            | threat-model.md    | WIP    |                    |
+| Requirement ID | Verification Procedure & Artifact Link | Objective Evidence & Acceptance |
+| :--- | :--- | :--- |
+| `REQ-FUNC-001` | **Automated E2E Testing**<br>Execute multi-role login & session suites (`tests/e2e/test_auth.py`). | Pytest HTML report confirming 100% pass rate (`reports/e2e_pass.html`). |
+| `REQ-SEC-003` | **Threat Modeling & Vulnerability Scan**<br>Review STRIDE model & scan images (`security/threat-model.md`). | Trivy scan sign-off with 0 critical issues (`reports/security_signoff.json`). |
+| `REQ-PERF-001` | **Load & Performance Testing**<br>Simulate peak load with 500 virtual users (`benchmarks/load_test.js`). | k6 benchmark report verifying p99 latency < 200ms (`reports/k6_summary.pdf`). |
 
 💡 Tips:
 - Include both positive and negative tests and include non-functional verification (performance, security, reliability).
 - Verification artifacts may be versioned and linked to CI/CD.
 - For AI, reference Model Cards and track eval datasets’ versions and ensure reproducibility of results.
+
 
 ## 5. Appendixes
 💬 _Optional supporting material that aids understanding without being normative._
