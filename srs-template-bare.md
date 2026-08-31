@@ -119,13 +119,10 @@ Prepared by {{author}}
 #### 3.2.6 Portability and Risks
 <!-- ability to run on multiple environments (supported OSs/runtimes, cloud providers, etc) -->
 
-#### 3.2.7 Deadline
-<!-- milestones, delivery dates, and readiness criteria -->
-
-#### 3.2.8 Data Management
+#### 3.2.7 Data Management
 <!-- lifecycle of datasets (origin, labeling, anonymization, etc) -->
 
-#### 3.2.9 Guardrails
+#### 3.2.8 Guardrails
 <!-- controls that the system operates within approved boundaries (validation/sanitation, output filtering, action limits, etc) -->
 
 ## 4. Verification
