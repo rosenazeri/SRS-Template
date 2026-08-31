@@ -1,5 +1,5 @@
 # Software Requirements Specification
-## For {{project name}}
+## For {{Software Engineering Course Project — Fall 2026}}
 
 Version 0.1  
 Prepared by {{author}}  
@@ -23,11 +23,7 @@ Prepared by {{author}}
     * [2.6 Apportioning of Requirements](#26-apportioning-of-requirements)
 * [3. Requirements](#3-requirements)
     * [3.1 External Interfaces](#31-external-interfaces)
-    * [3.2 Functional](#32-functional)
-    * [3.3 Quality of Service](#33-quality-of-service)
-    * [3.4 Compliance](#34-compliance)
-    * [3.5 Design and Implementation](#35-design-and-implementation)
-    * [3.6 AI/ML](#36-aiml)
+    * [3.2 Quality of Service](#32-quality-of-service)
 * [4. Verification](#4-verification)
 * [5. Appendixes](#5-appendixes)
 <!-- TOC -->
@@ -62,25 +58,28 @@ Prepared by {{author}}
 ### 1.5 Document Overview
 <!-- document structure and conventions -->
 
-## 2. Product Overview
+## 2. Product Overview 
 <!-- background and context that shape the product's requirements -->
 
-### 2.1 Product Perspective
+### 2.1 Case study and Comparison
+<!-- analysis of existing benchmark systems or domain workflows and how this product differentiates itself -->
+
+### 2.2 Product Perspective
 <!-- context of the system: a new product, a replacement, or part of a family; note relationships to other systems -->
 
-### 2.2 Product Functions
+### 2.3 Product Functions
 <!-- major functional areas or features the product provides in 5–10 concise bullets -->
 
-### 2.3 Product Constraints
+### 2.4 Product Constraints
 <!-- design and implementation constraints that affect the solution -->
 
-### 2.4 User Characteristics
+### 2.5 User Characteristics
 <!-- classes, roles, expertise, access levels, frequency of use, and accessibility or localization needs -->
 
-### 2.5 Assumptions and Dependencies
+### 2.6 Assumptions and Dependencies
 <!-- assumptions about environment, third-party services, usage patterns, and other external factors; note potential impact/risk. -->
 
-### 2.6 Apportioning of Requirements
+### 2.7 Apportioning of Requirements
 <!-- map major requirements to subsystems, services, or releases/iterations -->
 
 ## 3. Requirements
@@ -98,89 +97,41 @@ Prepared by {{author}}
 #### 3.1.3 Software Interfaces
 <!-- integrations with other systems (APIs, contracts, owner, etc) -->
 
-### 3.2 Functions
-<!-- externally observable behaviors organized by feature/use case -->
-
-### 3.3 Quality of Service
+### 3.2 Quality of Service
 <!-- measurable non-functional attributes section -->
 
-#### 3.3.1 Performance
+#### 3.2.1 Performance
 <!-- time (latency, throughput, etc.) and space (memory, storage, bandwidth, etc.) -->
 
-#### 3.3.2 Security
+#### 3.2.2 Security
 <!-- protection of data, identities, and operations (transit/rest, auth, encryption, etc); safety, confidentiality, privacy, integrity, and availability -->
 
-#### 3.3.3 Reliability
+#### 3.2.3 Reliability
 <!-- ability to consistently perform as specified (MTBF, redundancy/failover, caches, etc) -->
 
-#### 3.3.4 Availability
+#### 3.2.4 Availability
 <!-- readiness to deliver service (target SLAs, maintenance windows, recovery/restore, etc) -->
 
-#### 3.3.5 Observability
+#### 3.2.5 Observability
 <!--  logs, metrics, traces, alerting and dashboards -->
 
-### 3.4 Compliance
-<!-- laws, standards, contracts, or policies; cite the authority and verifiable criteria. -->
-
-### 3.5 Design and Implementation
-<!-- constraints and mandates on design, deployment, and maintenance section -->
-
-#### 3.5.1 Installation
-<!-- ensure software runs smoothly in its target environments (supported platforms, prerequisites, configuration, etc) -->
-
-#### 3.5.2 Build and Delivery
-<!-- controls for building and delivering (dependency management, automation, integrity/traceability, etc) -->
-
-#### 3.5.3 Distribution
-<!-- distributed deployments, data, and devices (topologies, replication/placement, etc) -->
-
-#### 3.5.4 Maintainability
-<!-- measurable attributes that make the software easier to modify, fix, and evolve (modularity, standards, documentation, observability, etc) -->
-
-#### 3.5.5 Reusability
-<!-- components intended for reuse -->
-
-#### 3.5.6 Portability
+#### 3.2.6 Portability and Risks
 <!-- ability to run on multiple environments (supported OSs/runtimes, cloud providers, etc) -->
 
-#### 3.5.7 Cost
-<!-- targets/budgets that influence design or implementation (cloud spend, per-transaction, licensing, etc) -->
-
-#### 3.5.8 Deadline
+#### 3.2.7 Deadline
 <!-- milestones, delivery dates, and readiness criteria -->
 
-#### 3.5.9 Proof of Concept
-<!-- objectives, scope, timebox, and success criteria for any POC -->
-
-#### 3.5.10 Change Management
-<!-- how changes are introduced and communicated (categories, required artifacts and workflow, etc) -->
-
-### 3.6 AI/ML
-<!-- ML-specific requirements section -->
-
-#### 3.6.1 Model Specification
-<!-- model purpose, inputs/outputs, performance targets, validation data, versioning -->
-
-#### 3.6.2 Data Management
+#### 3.2.8 Data Management
 <!-- lifecycle of datasets (origin, labeling, anonymization, etc) -->
 
-#### 3.6.3 Guardrails
+#### 3.2.9 Guardrails
 <!-- controls that the system operates within approved boundaries (validation/sanitation, output filtering, action limits, etc) -->
-
-#### 3.6.4 Ethics
-<!-- fairness, transparency, and accountability metrics/enforcement -->
-
-#### 3.6.5 Human-in-the-Loop
-<!-- human oversight (review points, escalations, feedback, etc) -->
-
-#### 3.6.6 Model Lifecycle and Operations
-<!-- deployment, monitoring, retraining, and retiring -->
 
 ## 4. Verification
 
-| Requirement ID | Verification Method | Test/Artifact Link | Status | Evidence |
-|----------------|---------------------|--------------------|--------|----------|
-|                |                     |                    |        |          |
-|                |                     |                    |        |          |
+| Requirement ID | Test/Artifact Link | Evidence |
+|----------------|--------------------|----------|
+|                |                    |          |       
+|                |                    |          |      
 
 ## 5. Appendixes
